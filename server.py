@@ -95,7 +95,7 @@ def get_hotel_info():
         if result['totalPrice'] <= lowest_price:
             lowest_price = result['totalPrice']
             hotel_data = {
-                "Cities": result['_id']['city'],
+                "City": result['_id']['city'],
                 "Check In Date": checkIn_date.strftime('%Y-%m-%d'),
                 "Check Out Date": checkOut_date.strftime('%Y-%m-%d'),
                 "Hotel": result['_id']['hotelName'],
