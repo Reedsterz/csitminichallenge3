@@ -1,6 +1,7 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response
 from pymongo import MongoClient
 from datetime import datetime
+import json
 
 app = Flask(__name__)
 
@@ -59,7 +60,7 @@ def get_flight_info():
                 }
                 cheapest_flights.append(flight_data)
 
-    return jsonify(flight_data), 200
+    return jsonify(cheapest_flights), 200
 
 @app.route('/hotel', methods=['GET'])
 def get_hotel_info():
@@ -103,7 +104,13 @@ def get_hotel_info():
             }
             cheapest_hotel.append(hotel_data)
 
-    return jsonify(cheapest_hotel), 200
+    json_data = json.dumps(cheapest_hotel, indent=2, ensure_ascii=False, sort_keys=False)
+
+    # Create a Response object with the JSON data
+    response = Response(json_data, content_type='application/json; charset=utf-8')
+
+    return response, 200
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0',port=8080)
