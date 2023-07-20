@@ -103,7 +103,7 @@ def get_hotel_info():
             }
             cheapest_hotel.append(hotel_data)
 
-    return jsonify(cheapest_hotel), 200
+    return jsonify(cheapest_hotel), 201
 
 if __name__ == '__main__':
     app.run('0.0.0.0',port=8080)
