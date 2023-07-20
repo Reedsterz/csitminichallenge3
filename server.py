@@ -95,7 +95,7 @@ def get_hotel_info():
         if result['totalPrice'] <= lowest_price:
             lowest_price = result['totalPrice']
             hotel_data = {
-                "City": result['_id']['city'],
+                "Cities": result['_id']['city'],
                 "Check In Date": checkIn_date.strftime('%Y-%m-%d'),
                 "Check Out Date": checkOut_date.strftime('%Y-%m-%d'),
                 "Hotel": result['_id']['hotelName'],
@@ -106,4 +106,4 @@ def get_hotel_info():
     return jsonify(cheapest_hotel), 200
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=8080)
+    app.run('0.0.0.0',port=8080)
