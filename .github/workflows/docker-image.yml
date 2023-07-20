@@ -23,5 +23,5 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: "ridzuan/flight-api:latest"
+        tags: "ridzuan/csitminichallenge3"
         build-args: --no-cache
